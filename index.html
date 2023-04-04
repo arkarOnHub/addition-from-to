@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Addition from-to</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .container {
+            background-color: burlywood;
+            width: 400px;
+            height: 300px;
+            border-radius: 20px;
+
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+/* Section 1 */
+
+        .title {
+            text-align: center;
+        }
+
+        .input-box {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .input-b {
+            width: 100px;
+            height: 20px;
+            margin: 10px 5px;
+            outline: none;
+            border-radius: 20px;
+            padding: 10px;
+        }
+
+        .ans-btn {
+            width: 60px;
+            height: 20px;
+            border-radius: 20px;
+            outline: none;
+            cursor: pointer;
+        }
+
+/* Section 2 */
+        .display-box {
+            background-color: cadetblue;
+            margin-top: 46px;
+            height: 150px;
+            position: relative;
+            border-radius: 20px;
+        }
+
+        .answer-0 {
+            margin: 25px;
+            padding: 5px;
+        }
+
+        .answer-1 {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .qmark {
+            position: absolute;
+            right: 10px;
+            bottom: 10px;
+
+            cursor: pointer;
+        }
+
+        svg:hover{
+            fill: darkslategray;
+        }
+
+        .help-container {
+            position: absolute;
+            top: 53%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+
+            width: 360px;
+            height: 260px;
+            background-color: rgba(0, 0, 0, 0.9);
+            color: #d6d1d1;
+            border-radius: 20px;
+            padding: 10px;
+         }
+
+        .tq {
+            margin-top: 15px;
+        }
+
+        .fa-times {
+            position: absolute;
+            right: 15px;
+        }
+
+        .fa-times:hover {
+            color: #c5b8b8;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">Addition From - To</h1>
+        <div class="input-box">
+            <input type="number" class="input-b input-0" id="input-0" placeholder="1st Input">
+            <input type="number" class="input-b input-1" id="input-1" placeholder="2nd Input"> <br>
+            <button class="ans-btn" onclick="answer()">Answer</button>
+            <button class="ans-btn" onclick="clearAll()">Clear</button>
+        </div>
+        <div class="display-box">
+            <h3 class="answer-0">The answer is: </h3>
+            <h1 class="answer-1" id="final-answer">0</h1>
+            <svg id="help" class="qmark" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="35px" height="35px" viewBox="0 0 438.533 438.533" style="enable-background:new 0 0 438.533 438.533;"
+	 xml:space="preserve">
+<g>
+	<path d="M409.133,109.203c-19.608-33.592-46.205-60.189-79.798-79.796C295.736,9.801,259.058,0,219.273,0
+		c-39.781,0-76.47,9.801-110.063,29.407c-33.595,19.604-60.192,46.201-79.8,79.796C9.801,142.8,0,179.489,0,219.267
+		c0,39.78,9.804,76.463,29.407,110.062c19.607,33.592,46.204,60.189,79.799,79.798c33.597,19.605,70.283,29.407,110.063,29.407
+		s76.47-9.802,110.065-29.407c33.593-19.602,60.189-46.206,79.795-79.798c19.603-33.596,29.403-70.284,29.403-110.062
+		C438.533,179.485,428.732,142.795,409.133,109.203z M255.82,356.309c0,2.662-0.862,4.853-2.573,6.563
+		c-1.704,1.711-3.895,2.567-6.557,2.567h-54.823c-2.664,0-4.854-0.856-6.567-2.567c-1.714-1.711-2.57-3.901-2.57-6.563v-54.823
+		c0-2.662,0.855-4.853,2.57-6.563c1.713-1.708,3.903-2.563,6.567-2.563h54.823c2.662,0,4.853,0.855,6.557,2.563
+		c1.711,1.711,2.573,3.901,2.573,6.563V356.309z M325.338,187.574c-2.382,7.043-5.044,12.804-7.994,17.275
+		c-2.949,4.473-7.187,9.042-12.709,13.703c-5.51,4.663-9.891,7.996-13.135,9.998c-3.23,1.995-7.898,4.713-13.982,8.135
+		c-6.283,3.613-11.465,8.326-15.555,14.134c-4.093,5.804-6.139,10.513-6.139,14.126c0,2.67-0.862,4.859-2.574,6.571
+		c-1.707,1.711-3.897,2.566-6.56,2.566h-54.82c-2.664,0-4.854-0.855-6.567-2.566c-1.715-1.712-2.568-3.901-2.568-6.571v-10.279
+		c0-12.752,4.993-24.701,14.987-35.832c9.994-11.136,20.986-19.368,32.979-24.698c9.13-4.186,15.604-8.47,19.41-12.847
+		c3.812-4.377,5.715-10.188,5.715-17.417c0-6.283-3.572-11.897-10.711-16.849c-7.139-4.947-15.27-7.421-24.409-7.421
+		c-9.9,0-18.082,2.285-24.555,6.855c-6.283,4.565-14.465,13.322-24.554,26.263c-1.713,2.286-4.093,3.431-7.139,3.431
+		c-2.284,0-4.093-0.57-5.424-1.709L121.35,145.89c-4.377-3.427-5.138-7.422-2.286-11.991
+		c24.366-40.542,59.672-60.813,105.922-60.813c16.563,0,32.744,3.903,48.541,11.708c15.796,7.801,28.979,18.842,39.546,33.119
+		c10.554,14.272,15.845,29.787,15.845,46.537C328.904,172.824,327.71,180.529,325.338,187.574z"/>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+            </svg>
+        </div>
+        </div>
+    </div>
+
+    <div class="help-container" id="pekaboo">
+        <i class="fas fa-times" id="close"></i>
+        <h3 align="center">Read Me</h3>
+        <p>This program will show you the addition of every number between 2 numbers you've enterd. <br><br>
+        E.g. <br> If you enter "1" in the 1st input & "10" in the 2nd input, the answer will be "55". </p>
+        <p align="right" class="tq">Thank you :)</p>
+    </div>
+
+    <script>
+
+        let input0 = document.querySelector('#input-0');
+        let input1 = document.querySelector('#input-1');
+        document.querySelector('#pekaboo').style.display = 'none';
+
+        function answer() {
+
+            let current0 = input0.value;
+            let current1 = input1.value;
+            let sum = 0;
+
+            for (i = eval(current0); i <= current1; i++) {
+                sum = sum + i;
+            }
+
+            document.querySelector('#final-answer').innerHTML = sum;
+
+
+            console.log(sum);
+
+            // console.log(input0.value);
+            // console.log(input1.value);
+        }
+
+        function clearAll() {
+            input0.value = '';
+            input1.value = '';
+
+            document.querySelector('#final-answer').innerHTML = 0;
+        }
+
+        document.querySelector('#help').addEventListener('click', () => {
+
+            document.querySelector('#pekaboo').style.display = 'block';
+        })
+
+        document.querySelector('#close').addEventListener('click', () => {
+            document.querySelector('#pekaboo').style.display = 'none';
+        })
+    </script>
+
+</body>
+</html>
